@@ -1,0 +1,8 @@
+function str = getVarName(var)
+
+    str = sprintf('%s', inputname(1));
+
+    num = strlength(str)
+
+end
+

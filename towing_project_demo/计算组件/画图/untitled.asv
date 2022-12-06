@@ -1,0 +1,54 @@
+function tug4_semi_motion_display(p0, p1, p2, p3, p4, sim_step)
+
+if display_motion_flag == 1
+    if sim_step == 1
+        hull_x0 = [-75, 75, 75, -75, -75];
+        hull_y0 = [50, 50, -50, -50, 50];
+        hull_x1 = [-16, 12, 16, 12, -16, -16];
+        hull_y1 = [6, 6, 0, -6, -6, 6];
+        figure(1);
+        title('Motion of the ships');
+%         axis([-50, 50, -50, 50]*2);
+        axis equal;
+    
+        hgtrans0 = initial_motion_fig(hull_x0, hull_y0, p0, 0, [5, 3], 'y');
+        hgtrans1 = initial_motion_fig(hull_x1, hull_y1, p1, 1, [25,-20], 'm');
+        hgtrans2 = initial_motion_fig(hull_x1, hull_y1, p2, 2, [25, 20], 'm');
+        hgtrans3 = initial_motion_fig(hull_x1, hull_y1, p3, 3, [-25,20], 'm');
+        hgtrans4 = initial_motion_fig(hull_x1, hull_y1, p4, 4, [-25, -20], 'm');
+        update_motion_fig(hgtrans0, p0);
+        update_motion_fig(hgtrans1, p1);
+        update_motion_fig(hgtrans2, p2);
+        update_motion_fig(hgtrans3, p3);
+        update_motion_fig(hgtrans4, p4);
+        pause(0.0001);
+    
+%     else i>1 & i<max_step
+        else 
+        update_motion_fig(hgtrans0, p0);
+        hold on 
+        plot(p0(1), p0(2), '.');
+        update_motion_fig(hgtrans1, p1);
+        update_motion_fig(hgtrans2, p2);
+        update_motion_fig(hgtrans3, p3);
+        update_motion_fig(hgtrans4, p4);
+        pause(0.0001);
+    
+
+    end
+
+end
+
+
+
+function hgtrans = initial_motion_fig(hull_x, hull_y, p, id, id_position, ship_color)
+    hgtrans = hgtransform;
+    fill(hull_x, hull_y, ship_color, 'parent',hgtrans);
+    line(0,0,'marker','o','markeredgecolor','k','markerfacecolor','k','parent',hgtrans); 
+%     text(p(1)+id_position(1), p(2)+id_position(2), num2str(id), 'parent', hgtrans);   
+end
+
+function [] = update_motion_fig(hgtrans, p)
+    makehg = makehgtform('translate',[p(1) p(2) 0]) * makehgtform('zrotate',p(3));
+    set(hgtrans, 'Matrix',makehg); 
+end

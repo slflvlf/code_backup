@@ -1,0 +1,101 @@
+clear all;  clc;
+% 韩森论文里的mpc控制器（p130)
+% 初始值（状态量和控制量）
+pose = [0; 0; 0;];  vel = [0, 0, 0]';
+x0 = [pose; vel];
+u0 = [0, 0, 0, 0, 0, deg2rad(180), deg2rad(180), 0]';
+time_step = 1;
+nu = 8;
+nx = 6;
+np = 20;
+nc = 5;
+
+% 控制增益
+Q_state_error = [1, 1, 1*57.3^2, 0, 0, 0];
+Q_control_error = zeors(1, 8);
+Q = diag([Q_state_error, Q_control_error]);%这包括了状态量误差和控制量误差的增益  
+
+R = 0.01* eye(nu);%这是控制量变化率的的增益
+
+
+%在任意参考轨迹点 (xr, ur)对式 (6–8)进行一阶泰勒展开：
+% 里面的输入暂时是0， 应该是轨迹上的展开点的位置和当前输入，现在暂时先把AB在一个预测时域内是常数矩阵
+[A, B] = OneShipStateJacobianFcn(x0, u0);
+Ak = eye(nx) + time_step * A;
+Bk = time_step * B;
+
+At = [Ak, Bk; zeros(nu, nx), eye(nu)];
+Bt = [Bk; eye(nu)];
+
+
+AA_cell = cell(np, 1);
+BB_cell = cell(np, nc);
+
+for i = 1 : np
+    AA_cell{i, 1} = At.^i;
+    for  j = 1 : nc
+        if i <= j
+            BB_cell{i, j} = At.^(i - j) * Bt;
+        else
+            BB_cell{i, j} = zeros(nx+nu, nu);
+        end
+    end
+end
+
+AA = cell2mat(AA_cell);
+BB = cell2mat(BB_cell);
+BB(isnan(BB)) = 0;
+
+% 二次型代价函数相关的
+Qe_cell = cell(np, np);
+Re_cell = cell(nc, nc);
+for i = 1 : length(Qe_cell)
+    for j = 1 : length(Qe_cell)
+        if i == j 
+            Qe_cell{i, j} = Q;
+        else
+            Qe_cell{i, j} = zeros(nx + nu, nx + nu);
+        end
+    end
+end
+for i = 1 : length(Re_cell)
+    for j = 1 : length(Re_cell)
+        if i == j
+            Re_cell{i, j} = R;
+        else
+            Re_cell{i, j} = zeros(nu, nu);
+        end
+    end
+end
+Qe = cell2mat(Qe_cell);
+Re = cell2mat(Re_cell);
+Hk = 2 * (BB' * Qe * BB) + Re;
+eta_k = zeros((nx+nu), 1); %eta_k为[x_error(k), u_error(k)]' 
+Gk = 2 * BB' * Qe * AA * eta_k;
+
+M = kron(tril(ones(nc)), eye(nu));
+
+
+% 控制量的约束
+df_max = 100;   da_max = deg2rad(10);
+du_min = repmat([-df_max, -df_max, -df_max, -df_max, -da_max, -da_max, -da_max, -da_max]', nc, 1);
+du_max = repmat([df_max, df_max, df_max, df_max, da_max, da_max, da_max, da_max]', nc, 1);
+% △U的上下界约束
+lb = du_min;
+ub = du_max;
+
+f_max = 800;
+u_max = repmat([f_max, f_max, f_max, f_max, deg2rad(45), deg2rad(225), deg2rad(225), deg2rad(45)]', nc, 1);
+u_min = repmat([0, 0, 0, 0, deg2rad(-45), deg2rad(135), deg2rad(135), deg2rad(-45)]', nc, 1);
+
+A_inequal = [M; -M];
+b_inequal = [u_max - kron(ones(nc,1),u0);  -u_min + kron(ones(nc,1),u0)];
+
+%% 求解过程
+options = optimoptions('quadprog','Display','off','MaxIterations',100,'TolFun',1e-16);
+delta_U = quadprog(Hk, Gk, A_inequal, b_inequal, [], [], lb, ub, [], options);
+
+
+
+
+

@@ -1,0 +1,24 @@
+/*
+ * countsort.h
+ *
+ * Code generation for function 'countsort'
+ *
+ */
+
+#pragma once
+
+/* Include files */
+#include "rtwtypes.h"
+#include "emlrt.h"
+#include "mex.h"
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/* Function Declarations */
+void countsort(const emlrtStack *sp, int32_T x_data[], const int32_T *x_size,
+               int32_T xLen, int32_T workspace_data[],
+               const int32_T *workspace_size, int32_T xMin, int32_T xMax);
+
+/* End of code generation (countsort.h) */

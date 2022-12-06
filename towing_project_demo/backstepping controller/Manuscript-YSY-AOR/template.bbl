@@ -1,0 +1,195 @@
+\begin{thebibliography}{36}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{DOI~\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{DOI~\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{Nguyen and S{\o}rensen(2009)}]{nguyen2009switching}
+Nguyen DT, S{\o}rensen AJ (2009) Switching control for thruster-assisted
+  position mooring. Control Engineering Practice 17(9):985--994
+
+\bibitem[{S{\o}rensen(2011)}]{sorensen2011survey}
+S{\o}rensen AJ (2011) A survey of dynamic positioning control systems. Annual
+  reviews in control 35(1):123--136
+
+\bibitem[{Aarset et~al(1998)Aarset, Strand, and Fossen}]{aarset1998nonlinear}
+Aarset MF, Strand JP, Fossen TI (1998) Nonlinear vectorial observer
+  backstepping with integral action and wave filtering for ships. IFAC
+  Proceedings Volumes 31(30):77--82
+
+\bibitem[{Fossen and Strand(1999)}]{fossen1999passive}
+Fossen TI, Strand JP (1999) Passive nonlinear observer design for ships using
+  lyapunov methods: Full-scale experiments with a supply vessel. Automatica
+  35(1):3 -- 16
+
+\bibitem[{Tannuri et~al(2010)Tannuri, Agostinho, Morishita, and
+  Moratelli~Jr}]{tannuri2010dynamic}
+Tannuri E, Agostinho A, Morishita H, Moratelli~Jr L (2010) Dynamic positioning
+  systems: An experimental analysis of sliding mode control. Control
+  Engineering Practice 18(10):1121--1132
+
+\bibitem[{Aalbers and Merchant(1996)}]{aalbers1996hydrodynamic}
+Aalbers A, Merchant A (1996) The hydrodynamic model testing for closed loop dp
+  assisted mooring. In: Offshore Technology Conference, Offshore Technology
+  Conference
+
+\bibitem[{Strand et~al(1998)Strand, S{\o}rensen, and Fossen}]{strand1998design}
+Strand JP, S{\o}rensen AJ, Fossen TI (1998) Design of automatic thruster
+  assisted mooring systems for ships. Modeling, Identification and Control
+  19(2):61--75
+
+\bibitem[{Aamo and Fossen(1999)}]{aamo1999controlling}
+Aamo OM, Fossen TI (1999) Controlling line tension in thruster assisted mooring
+  systems. In: Control Applications, 1999. Proceedings of the 1999 IEEE
+  International Conference on, IEEE, vol~2, pp 1104--1109
+
+\bibitem[{Sorensen et~al(1999)Sorensen, Strand, and
+  Fossen}]{sorensen1999thruster}
+Sorensen A, Strand JP, Fossen TI (1999) Thruster assisted position mooring
+  system for turret-anchored fpsos. In: Control Applications, 1999. Proceedings
+  of the 1999 IEEE International Conference on, IEEE, vol~2, pp 1110--1117
+
+\bibitem[{Wichers et~al(1999)Wichers, van Dijk et~al}]{wichers1999benefits}
+Wichers J, van Dijk R, et~al (1999) Benefits of using assisted dp for deepwater
+  mooring systems. In: Offshore Technology Conference, Offshore Technology
+  Conference
+
+\bibitem[{Ryu and Kim(2003)}]{ryu2003coupled}
+Ryu S, Kim M (2003) Coupled dynamic analysis of thruster-assisted turret-moored
+  fpso. In: OCEANS 2003. Proceedings, IEEE, vol~3, pp 1613--1620
+
+\bibitem[{S{\o}rensen et~al(2001)S{\o}rensen, Leira, Peter~Strand, and
+  Larsen}]{sorensen2001optimal}
+S{\o}rensen AJ, Leira B, Peter~Strand J, Larsen CM (2001) Optimal setpoint
+  chasing in dynamic positioning of deep-water drilling and intervention
+  vessels. International Journal of Robust and Nonlinear Control:
+  IFAC-Affiliated Journal 11(13):1187--1205
+
+\bibitem[{Leira et~al(2006)Leira, S{\o}rensen, Berntsen, and
+  Aamo}]{leira2006structural}
+Leira B, S{\o}rensen A, Berntsen P, Aamo O (2006) Structural reliability
+  criteria and dynamic positioning of marine vessels. International Journal of
+  Materials \& Structural Reliability 4(2):161--174
+
+\bibitem[{Ren et~al(2015)Ren, Skjetne, and Hassani}]{ren2015supervisory}
+Ren Z, Skjetne R, Hassani V (2015) Supervisory control of line breakage for
+  thruster-assisted position mooring system. IFAC-PapersOnLine 48(16):235--240
+
+\bibitem[{Nguyen et~al(2010)Nguyen, Nguyen, Quek, and
+  S{\o}rensen}]{nguyen2010control}
+Nguyen DH, Nguyen DT, Quek ST, S{\o}rensen AJ (2010) Control of marine riser
+  end angles by position mooring. Control Engineering Practice 18(9):1013--1021
+
+\bibitem[{Fang et~al(2013)Fang, Leira, and Blanke}]{fang2013position}
+Fang S, Leira BJ, Blanke M (2013) Position mooring control based on a
+  structural reliability criterion. Structural Safety 41:97--106
+
+\bibitem[{Nguyen and S{\o}rensen(2009)}]{nguyen2009setpoint}
+Nguyen DT, S{\o}rensen AJ (2009) Setpoint chasing for thruster-assisted
+  position mooring. IEEE Journal of Oceanic Engineering 34(4):548--558
+
+\bibitem[{Bj{\o}rn{\o} et~al(2017)Bj{\o}rn{\o}, Heyn, Skjetne, Dahl, and
+  Frederich}]{bjorno2017modeling}
+Bj{\o}rn{\o} J, Heyn HM, Skjetne R, Dahl AR, Frederich P (2017) Modeling,
+  parameter identification and thruster-assisted position mooring of c/s
+  inocean cat i drillship. In: ASME 2017 36th International Conference on
+  Ocean, Offshore and Arctic Engineering, American Society of Mechanical
+  Engineers
+
+\bibitem[{Wang et~al(2016)Wang, Yang, He, Xu, Su et~al}]{wang2016numerical}
+Wang L, Yang J, He H, Xu S, Su Tc, et~al (2016) Numerical and experimental
+  study on the influence of the set point on the operation of a
+  thruster-assisted position mooring system. International Journal of Offshore
+  and Polar Engineering 26(04):423--432
+
+\bibitem[{Sutton and Barto(1999)}]{sutton1999reinforcement}
+Sutton RS, Barto AG (1999) Reinforcement Learning: An Introduction. MIT Press
+
+\bibitem[{Anderlini et~al(2018)Anderlini, Forehand, Bannon, Xiao, and
+  Abusara}]{anderlini2018reactive}
+Anderlini E, Forehand D, Bannon E, Xiao Q, Abusara M (2018) Reactive control of
+  a two-body point absorber using reinforcement learning. Ocean Engineering
+  148:650--658
+
+\bibitem[{Nagabandi et~al(2018)Nagabandi, Kahn, Fearing, and
+  Levine}]{nagabandi2018neural}
+Nagabandi A, Kahn G, Fearing RS, Levine S (2018) Neural network dynamics for
+  model-based deep reinforcement learning with model-free fine-tuning. In: 2018
+  IEEE International Conference on Robotics and Automation (ICRA), IEEE, pp
+  7559--7566
+
+\bibitem[{Magalh{\~a}es et~al(2018)Magalh{\~a}es, Damas, and
+  Lobo}]{magalhaes2018reinforcement}
+Magalh{\~a}es J, Damas B, Lobo V (2018) Reinforcement learning: The application
+  to autonomous biomimetic underwater vehicles control. In: IOP Conference
+  Series: Earth and Environmental Science, IOP Publishing, vol 172, p 012019
+
+\bibitem[{Woo et~al(2019)Woo, Yu, and Kim}]{woo2019deep}
+Woo J, Yu C, Kim N (2019) Deep reinforcement learning-based controller for path
+  following of an unmanned surface vehicle. Ocean Engineering 183:155--166
+
+\bibitem[{Cao et~al(2010)Cao, Tahchiev, Zhang, Aarsnes, and
+  Glomnes}]{cao2010effects}
+Cao Y, Tahchiev G, Zhang F, Aarsnes JV, Glomnes EB (2010) Effects of
+  hydrostatic nonlinearity on motions of floating structures. In: Proceedings
+  of the International Conference on Offshore Mechanics and Arctic Engineering
+  - OMAE, Shanghai, China, vol~4, pp 257 -- 267
+
+\bibitem[{Pinkster and Albert(1980)}]{pinkster1980low}
+Pinkster, Albert J (1980) Low frequency second order wave exciting forces on
+  floating structures
+
+\bibitem[{Gao and Moan(2009)}]{gao2009mooring}
+Gao Z, Moan T (2009) Mooring system analysis of multiple wave energy converters
+  in a farm configuration. In: 8th European Wave and Tidal Energy Conference
+  (EWTEC), pp 509--518
+
+\bibitem[{Chai et~al(2002)Chai, Varyani, and Barltrop}]{chai2002three}
+Chai Y, Varyani K, Barltrop N (2002) Three-dimensional lump-mass formulation of
+  a catenary riser with bending, torsion and irregular seabed interaction
+  effect. Ocean Engineering 29(12):1503--1525
+
+\bibitem[{Low and Langley(2006)}]{low2006time}
+Low Y, Langley R (2006) Time and frequency domain coupled analysis of deepwater
+  floating production systems. Applied Ocean Research 28(6):371--385
+
+\bibitem[{Xiong et~al(2016)Xiong, Yang, and Zhao}]{xiong2016dynamics}
+Xiong L, Yang J, Zhao W (2016) Dynamics of a taut mooring line accounting for
+  the embedded anchor chains. Ocean Engineering 121:403--413
+
+\bibitem[{He et~al(2020)He, Wang, Wang, Li, and Xu}]{he2020energy}
+He H, Wang L, Wang X, Li B, Xu S (2020) Energy-efficient control of a
+  thruster-assisted position mooring system using neural q-learning techniques.
+  Ships and Offshore Structures pp 1--12
+
+\bibitem[{Fossen and Strand(2001)}]{fossen2001nonlinear}
+Fossen TI, Strand JP (2001) Nonlinear passive weather optimal positioning
+  control (wopc) system for ships and rigs: experimental results. Automatica
+  37(5):701 -- 715
+
+\bibitem[{Fossen(2011)}]{fossen2011handbook}
+Fossen TI (2011) Handbook of marine craft hydrodynamics and motion control.
+  John Wiley \& Sons
+
+\bibitem[{Arditti et~al(2015)Arditti, Souza, Martins, and
+  Tannuri}]{arditti2015thrust}
+Arditti F, Souza F, Martins T, Tannuri E (2015) Thrust allocation algorithm
+  with efficiency function dependent on the azimuth angle of the actuators.
+  Ocean Engineering 105:206 -- 216
+
+\bibitem[{Mnih et~al(2015)Mnih, Kavukcuoglu, Silver, Rusu, Veness, Bellemare,
+  Graves, Riedmiller, Fidjeland, Ostrovski et~al}]{mnih2015human-level}
+Mnih V, Kavukcuoglu K, Silver D, Rusu AA, Veness J, Bellemare MG, Graves A,
+  Riedmiller MA, Fidjeland AK, Ostrovski G, et~al (2015) Human-level control
+  through deep reinforcement learning. Nature 518(7540):529--533
+
+\bibitem[{Silver et~al(2008)Silver, Sutton, and M{\"u}ller}]{silver2008sample}
+Silver D, Sutton RS, M{\"u}ller M (2008) Sample-based learning and search with
+  permanent and transient memories. In: Proceedings of the 25th international
+  conference on Machine learning, ACM, pp 968--975
+
+\end{thebibliography}

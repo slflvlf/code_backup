@@ -1,0 +1,456 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>dynamic</title><meta name="generator" content="MATLAB 9.12"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-11-23"><meta name="DC.source" content="dynamic.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#3">&#23450;&#20041;&#21442;&#25968;</a></li><li><a href="#4">&#20998;&#27573;&#21442;&#25968;</a></li><li><a href="#5">&#23450;&#20041;&#36136;&#37327;</a></li><li><a href="#6">&#37325;&#21147;</a></li><li><a href="#7">&#36136;&#28857;&#22352;&#26631;&#21021;&#22987;&#21270;</a></li><li><a href="#8">&#21333;&#20803;&#23454;&#38469;&#38271;&#24230;</a></li><li><a href="#9">&#28023;&#24213;&#25903;&#25345;&#21147;</a></li><li><a href="#10">&#24352;&#21147;</a></li><li><a href="#11">&#24352;&#21147;&#30340;&#38597;&#21487;&#27604;&#30697;&#38453;</a></li><li><a href="#12">&#28023;&#24213;&#25903;&#25345;&#21147;&#30340;&#38597;&#21487;&#27604;&#30697;&#38453;</a></li><li><a href="#13">&#24635;&#30340;&#38597;&#20811;&#27604;&#30697;&#38453;</a></li><li><a href="#14">&#36793;&#30028;&#26465;&#20214;</a></li><li><a href="#15">&#26041;&#31243;&#32452;&#21512;</a></li><li><a href="#16">&#27714;&#35299;</a></li><li><a href="#17">&#36845;&#20195;&#32456;&#27490;&#26465;&#20214;</a></li><li><a href="#18">&#19979;&#19968;&#27493;&#36845;&#20195;</a></li><li><a href="#20">&#38745;&#21147;&#35745;&#31639;&#32467;&#26524;</a></li><li><a href="#21">&#21160;&#21147;&#35745;&#31639;</a></li><li><a href="#22">&#23450;&#20041;&#36816;&#21160;&#21518;&#23548;&#32518;&#23380;&#30340;&#20301;&#32622; &#21644; &#21442;&#25968;&#21021;&#22987;&#21270;</a></li><li><a href="#23">&#26102;&#38388;&#36845;&#20195;</a></li><li><a href="#25">&#21333;&#20803;&#23454;&#38469;&#38271;&#24230; &#19978;&#19968;&#26102;&#38388;&#28857;</a></li><li><a href="#26">&#24352;&#21147;&#30340;&#38597;&#21487;&#27604;&#30697;&#38453; &#19978;&#19968;&#26102;&#38388;&#28857;</a></li><li><a href="#27">&#28023;&#24213;&#25903;&#25345;&#21147;&#30340;&#38597;&#21487;&#27604;&#30697;&#38453; &#19978;&#19968;&#26102;&#38388;&#28857;</a></li><li><a href="#28">&#35745;&#31639;&#38597;&#21487;&#27604;&#30697;&#38453;&#20351;&#29992;&#30340;&#36136;&#37327;&#30697;&#38453; &#19978;&#19968;&#26102;&#38388;&#28857;</a></li><li><a href="#29">&#36845;&#20195;&#21021;&#22987;&#21270;</a></li><li><a href="#30">&#24403;&#21069;&#26102;&#38388;&#36845;&#20195;</a></li><li><a href="#32">&#21333;&#20803;&#23454;&#38469;&#38271;&#24230;  &#26412;&#26102;&#38388;&#28857;</a></li><li><a href="#33">&#38468;&#21152;&#36136;&#37327;    &#26412;&#26102;&#38388;&#28857;</a></li><li><a href="#34">&#28023;&#24213;&#25903;&#25345;&#21147;   &#26412;&#26102;&#38388;&#28857;</a></li><li><a href="#35">&#24352;&#21147;   &#26412;&#26102;&#38388;&#28857;</a></li><li><a href="#36">&#36136;&#28857;&#30340;&#25968;&#24230;&#21152;&#36895;&#24230;  &#26412;&#26102;&#38388;&#28857;</a></li><li><a href="#37">&#25302;&#26355;&#21147;  &#26412;&#26102;&#38388;&#28857;</a></li><li><a href="#38">&#36793;&#30028;&#26465;&#20214;  &#26412;&#26102;&#38388;&#28857;</a></li><li><a href="#39">&#26041;&#31243;&#32452;&#21512;   &#26412;&#26102;&#38388;&#28857;</a></li><li><a href="#40">&#35299;&#26041;&#31243;    &#26412;&#26102;&#38388;&#28857;</a></li></ul></div><pre class="codeinput"><span class="keyword">function</span> [TR1, TRN] = dynamic(p0, p1, p0_next, p1_next, mooring_param)
+</pre><pre class="codeinput"><span class="comment">% &#36825;&#19968;&#20010;&#26159;&#22312;&#26753;&#21338;&#30340;&#29256;&#26412;&#19978;&#30340;&#21021;&#27493;&#20462;&#25913;</span>
+
+<span class="comment">% mooring_param = struct('length', 300, 'element_length', 10, 'element_number', 30,...</span>
+<span class="comment">%                 'node_number', 31, 'E', 9.16e10, 'diameter', 0.09, 'cross_area', 6.362e-3, ...</span>
+<span class="comment">%                 'density', 126, 'time_step', 0.1, 'coef_drag', 1, 'coef_addmass', 1,...</span>
+<span class="comment">%                 'current', [0; 0; 0]);</span>
+
+g=9.80665;
+L = mooring_param.element_length;            <span class="comment">%&#20998;&#27573;&#38271;m</span>
+H=1500;          <span class="comment">%&#27700;&#28145;</span>
+Time=1;        <span class="comment">%&#26102;&#38388; s</span>
+<span class="comment">% p0=[0;0;2];      %&#22352;&#26631;m</span>
+<span class="comment">% p1=[310;0;2];</span>
+<span class="comment">% p0_next=[0;0;2];      %&#22352;&#26631;m</span>
+<span class="comment">% p1_next=[315;0;2];</span>
+</pre><pre class="codeoutput error">&#36755;&#20837;&#21442;&#25968;&#30340;&#25968;&#30446;&#19981;&#36275;&#12290;
+
+&#20986;&#38169; dynamic (&#31532; 10 &#34892;)
+L = mooring_param.element_length;            %&#20998;&#27573;&#38271;m
+</pre><h2 id="3">&#23450;&#20041;&#21442;&#25968;</h2><pre class="codeinput">[dt,k0,k1,k2,k3,k4,k5,CDn,CAn,pho_water,current,nt]=constant(Time, mooring_param);
+<span class="comment">% dt = 0.1;</span>
+<span class="comment">% dt&#21453;&#24212;&#22312;k0&#36825;&#20123;&#36845;&#20195;&#21442;&#25968;&#19978;&#65292;&#26368;&#32456;&#20307;&#29616;&#22312;&#36895;&#24230;&#21644;&#21152;&#36895;&#24230;&#30340;&#36845;&#20195;&#19978;</span>
+<span class="comment">% nt = 1;</span>
+</pre><h2 id="4">&#20998;&#27573;&#21442;&#25968;</h2><pre class="codeinput">[N,W,EA,D]=element_parameter(mooring_param);
+</pre><h2 id="5">&#23450;&#20041;&#36136;&#37327;</h2><pre class="codeinput">[Ms]=mass_par_length(N,L,W);
+[Ms_add]=mass_add(N,L,W);
+</pre><h2 id="6">&#37325;&#21147;</h2><pre class="codeinput"> [G]=gravity(N,Ms,g);
+</pre><h2 id="7">&#36136;&#28857;&#22352;&#26631;&#21021;&#22987;&#21270;</h2><pre class="codeinput">[Y_N, p_init0]=initial_position_horizon(p0,p1,H,N);
+<span class="comment">% [Y_N]=initial_position(p0,p1,H,N);</span>
+<span class="comment">%%%%%%%%%%%%%  &#21021;&#20540;&#32467;&#26463; &#24320;&#22987;&#36845;&#20195;  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="keyword">while</span> 1
+</pre><h2 id="8">&#21333;&#20803;&#23454;&#38469;&#38271;&#24230;</h2><pre class="codeinput"> [l]=element_length(Y_N,N);
+</pre><h2 id="9">&#28023;&#24213;&#25903;&#25345;&#21147;</h2><pre class="codeinput"> [Fb]=seabed(N,Ms,Y_N,H,g);
+</pre><h2 id="10">&#24352;&#21147;</h2><pre class="codeinput"> [T]=tension(N,EA,L,l);
+</pre><h2 id="11">&#24352;&#21147;&#30340;&#38597;&#21487;&#27604;&#30697;&#38453;</h2><pre class="codeinput"> [KT]=tension_K(N,EA,L,l,Y_N);
+</pre><h2 id="12">&#28023;&#24213;&#25903;&#25345;&#21147;&#30340;&#38597;&#21487;&#27604;&#30697;&#38453;</h2><pre class="codeinput"> [KB]=seabed_K(N,Ms,H,Y_N,g);
+</pre><h2 id="13">&#24635;&#30340;&#38597;&#20811;&#27604;&#30697;&#38453;</h2><pre class="codeinput"> K=KT+KB;
+</pre><h2 id="14">&#36793;&#30028;&#26465;&#20214;</h2><pre class="codeinput"> BON=zeros(3*N-3,1);
+ BON(1:3,1)=-T(1:3,1:3)*Y_N(1:3,1);
+ BON(3*N-5:3*N-3,1)=-T(3*N+1:3*N+3,3*N+1:3*N+3)*Y_N(3*N+1:3*N+3,1);
+</pre><h2 id="15">&#26041;&#31243;&#32452;&#21512;</h2><pre class="codeinput"> FY=T(4:3*N,4:3*N)*Y_N(4:3*N,1)+G(4:3*N,1)+Fb(4:3*N,1)+BON;
+</pre><h2 id="16">&#27714;&#35299;</h2><pre class="codeinput">R=1/2;
+Y_N1=Y_N(4:3*N,1)-K(4:3*N,4:3*N)\FY*R;
+</pre><h2 id="17">&#36845;&#20195;&#32456;&#27490;&#26465;&#20214;</h2><pre class="codeinput"><span class="keyword">if</span> norm(Y_N1-Y_N(4:3*N,1))&lt;1e-7
+    Y_N(4:3*N,1)=Y_N1;
+    <span class="keyword">break</span>
+<span class="keyword">end</span>
+</pre><h2 id="18">&#19979;&#19968;&#27493;&#36845;&#20195;</h2><pre class="codeinput">Y_N(4:3*N,1)=Y_N1;
+</pre><pre class="codeinput"><span class="keyword">end</span>
+</pre><h2 id="20">&#38745;&#21147;&#35745;&#31639;&#32467;&#26524;</h2><pre class="codeinput">p_static_final = getMooringLineShape(Y_N,N);
+
+<span class="comment">% figure(1)</span>
+<span class="comment">% plot(p_init0(:, 1), p_init0(:, 3))</span>
+<span class="comment">% hold on</span>
+<span class="comment">% plot(p_static_final(:, 1), p_static_final(:, 3))</span>
+<span class="comment">% hold off</span>
+<span class="comment">% title("static");</span>
+<span class="comment">% legend("init", "final")</span>
+<span class="comment">% legend boxoff</span>
+
+<span class="comment">% TE1=EA(1,1)*(l(1,1)/L-1)*(Y_N(4:6,1)-Y_N(1:3,1))/norm(Y_N(4:6,1)-Y_N(1:3,1))+G(1:3,1);</span>
+<span class="comment">% T1=norm(TE1);</span>
+<span class="comment">%%%%%%%%%%%%%%%%%%&#38745;&#21147;&#35745;&#31639;&#32467;&#26463;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+</pre><h2 id="21">&#21160;&#21147;&#35745;&#31639;</h2><h2 id="22">&#23450;&#20041;&#36816;&#21160;&#21518;&#23548;&#32518;&#23380;&#30340;&#20301;&#32622; &#21644; &#21442;&#25968;&#21021;&#22987;&#21270;</h2><p>aa=zeros(3*N,nt+1); vv=zeros(3*N,nt+1);</p><pre class="codeinput">aa=zeros(3*N+3,nt+1);
+vv=zeros(3*N+3,nt+1);
+<span class="comment">% [P_initial]=motion1(nt,N,Y_N,dt);</span>
+[P_initial]=motion2(nt,N,Y_N,p0_next, p1_next);
+p_dynamic0 = getMooringLineShape(P_initial(:, 2),N);
+p_dynamic_init = getMooringLineShape(P_initial(:, 1),N);
+</pre><h2 id="23">&#26102;&#38388;&#36845;&#20195;</h2><pre class="codeinput">iter = 0;
+<span class="keyword">for</span> t=2:2
+</pre><pre class="codeinput">    t;
+    P_initial(4:3*N,t)=P_initial(4:3*N,t-1);
+    Y_Nk=P_initial(:,t-1);
+    Y_N=P_initial(:,t);
+</pre><h2 id="25">&#21333;&#20803;&#23454;&#38469;&#38271;&#24230; &#19978;&#19968;&#26102;&#38388;&#28857;</h2><pre class="codeinput">    [lk]=element_length(Y_Nk,N);
+</pre><h2 id="26">&#24352;&#21147;&#30340;&#38597;&#21487;&#27604;&#30697;&#38453; &#19978;&#19968;&#26102;&#38388;&#28857;</h2><pre class="codeinput">    [KT]=tension_K_k(N,EA,L,lk,Y_Nk);
+</pre><h2 id="27">&#28023;&#24213;&#25903;&#25345;&#21147;&#30340;&#38597;&#21487;&#27604;&#30697;&#38453; &#19978;&#19968;&#26102;&#38388;&#28857;</h2><pre class="codeinput">    [KB]=seabed_K_k(N,Ms,H,Y_Nk,g);
+</pre><h2 id="28">&#35745;&#31639;&#38597;&#21487;&#27604;&#30697;&#38453;&#20351;&#29992;&#30340;&#36136;&#37327;&#30697;&#38453; &#19978;&#19968;&#26102;&#38388;&#28857;</h2><pre class="codeinput">   [Msk]=mass_K(N,Y_Nk,pho_water,D,CAn,L);
+    K=KT(4:3*N,4:3*N)+KB(4:3*N,4:3*N)-k0*(Msk(4:3*N,4:3*N)+Ms_add(4:3*N,4:3*N))+10^4*eye(3*N-3);
+</pre><h2 id="29">&#36845;&#20195;&#21021;&#22987;&#21270;</h2><pre class="codeinput">   delta_y=zeros(3*N-3,1);
+</pre><h2 id="30">&#24403;&#21069;&#26102;&#38388;&#36845;&#20195;</h2><pre class="codeinput"><span class="keyword">while</span> 1
+</pre><pre class="codeinput">    iter = iter+1;
+</pre><h2 id="32">&#21333;&#20803;&#23454;&#38469;&#38271;&#24230;  &#26412;&#26102;&#38388;&#28857;</h2><pre class="codeinput">    [l]=element_length(Y_N,N);
+</pre><h2 id="33">&#38468;&#21152;&#36136;&#37327;    &#26412;&#26102;&#38388;&#28857;</h2><pre class="codeinput">   [MsN]=mass_N(N,Y_N,pho_water,D,CAn,L);
+</pre><h2 id="34">&#28023;&#24213;&#25903;&#25345;&#21147;   &#26412;&#26102;&#38388;&#28857;</h2><pre class="codeinput">   [Fb]=seabed(N,Ms,Y_N,H,g);
+</pre><h2 id="35">&#24352;&#21147;   &#26412;&#26102;&#38388;&#28857;</h2><pre class="codeinput">   [T]=tension(N,EA,L,l);
+</pre><h2 id="36">&#36136;&#28857;&#30340;&#25968;&#24230;&#21152;&#36895;&#24230;  &#26412;&#26102;&#38388;&#28857;</h2><pre class="codeinput">   [aa,vv]=vel_acc1(delta_y,vv,aa,k0,k1,k2,k3,k4,k5,t,N,Y_N,Y_Nk);
+</pre><h2 id="37">&#25302;&#26355;&#21147;  &#26412;&#26102;&#38388;&#28857;</h2><pre class="codeinput">   [Fd]=drag_F(N,Y_N,H,current,vv,t,pho_water,D,L,CDn);
+</pre><h2 id="38">&#36793;&#30028;&#26465;&#20214;  &#26412;&#26102;&#38388;&#28857;</h2><pre class="codeinput">    BON=zeros(3*N-3,1);
+    BON(1:3,1)=EA(1,1)*(1/L-1/l(1,1))*eye(3)*Y_N(1:3,1);
+    BON(3*N-5:3*N-3,1)=EA(N,1)*(1/L-1/l(N,1))*eye(3)*Y_N(3*N+1:3*N+3,1);
+</pre><h2 id="39">&#26041;&#31243;&#32452;&#21512;   &#26412;&#26102;&#38388;&#28857;</h2><pre class="codeinput">   FY=T(4:3*N,4:3*N)*Y_N(4:3*N,1)+G(4:3*N,1)+Fb(4:3*N,1)+BON+Fd-(MsN(4:3*N,4:3*N)+Ms_add(4:3*N,4:3*N))*aa(4:3*N,t);
+</pre><h2 id="40">&#35299;&#26041;&#31243;    &#26412;&#26102;&#38388;&#28857;</h2><pre class="codeinput">    y=-K\FY;
+    Y_N(4:3*N,1)=Y_N(4:3*N,1)-K\FY;
+    delta_y=delta_y-K\FY;
+    norm(y);
+    <span class="keyword">if</span> norm(y)&lt;1e-5
+
+        aa(1:3,t)=k0*(Y_N(1:3,1)-Y_Nk(1:3,1))-k1*vv(1:3,t-1)-k2*aa(1:3,t-1);
+        vv(1:3,t)=k3*(Y_N(1:3,1)-Y_Nk(1:3,1))+k4*vv(1:3,t-1)-k5*aa(1:3,t-1);
+        aa(4:3*N,t)=k0*delta_y-k1*vv(4:3*N,t-1)-k2*aa(4:3*N,t-1);
+        vv(4:3*N,t)=k3*delta_y+k4*vv(4:3*N,t-1)-k5*aa(4:3*N,t-1);
+        aa(3*N+1:end, t) = k0*(Y_N(3*N+1:end, 1)-Y_Nk(3*N+1:end, 1))-k1*vv(3*N+1:end,1)-k2*aa(3*N+1:end,1);
+        vv(3*N+1:end, t) = k3*(Y_N(3*N+1:end, 1)-Y_Nk(3*N+1:end, 1))+k4*vv(3*N+1:end,1)-k5*aa(3*N+1:end,1);
+<span class="comment">%        aa(4:3*N,t)=k0*delta_y-k1*vv(4:3*N,t-1)-k2*aa(4:3*N,t-1);</span>
+<span class="comment">%        vv(4:3*N,t)=k3*delta_y+k4*vv(4:3*N,t-1)-k5*aa(4:3*N,t-1);</span>
+       <span class="keyword">break</span>
+    <span class="keyword">end</span>
+</pre><pre class="codeinput"><span class="keyword">end</span>
+<span class="comment">% sprintf("&#21160;&#24577;&#35745;&#31639;&#23436;&#25104;&#65292;&#36845;&#20195;&#20102;%d&#27425;.", iter-1)</span>
+P_initial(4:3*N,t)=Y_N(4:3*N,1);
+<span class="comment">% &#35745;&#31639;&#24352;&#21147;</span>
+tvec1 = (Y_N(4:6,1)-Y_N(1:3,1))/norm(Y_N(4:6,1)-Y_N(1:3,1));
+tvecN = (Y_N(3*N-2:3*N,1)-Y_N(3*N+1:3*N+3,1))/norm(Y_N(3*N-2:3*N,1)-Y_N(3*N+1:3*N+3,1));
+delta_vv1 = current-vv(1:3)';
+delta_vvN = current-vv(3*N+1:3*N+3)';
+TR1 = -(l(1)-L)/L*EA(1)*tvec1-0.25*pho_water*D(1)*CDn*(delta_vv1-(delta_vv1'*tvec1)*tvec1)<span class="keyword">...</span>
+    *norm(delta_vv1-(delta_vv1'*tvec1)*tvec1)-G(1:3);
+TRN = -(l(end)-L)/L*EA(end)*tvecN-0.25*pho_water*D(end)*CDn*(delta_vvN-(delta_vvN'*tvecN)*tvecN)<span class="keyword">...</span>
+    *norm(delta_vvN-(delta_vvN'*tvecN)*tvecN)-G(3*N+1:3*N+3);
+<span class="comment">%&#38170;&#38142;&#20316;&#29992;&#20110;&#33337;&#19978;&#30340;&#21147;</span>
+TR1 = -TR1/1e3;
+TRN = -TRN/1e3;
+</pre><pre class="codeinput"><span class="keyword">end</span>
+<span class="comment">% toc</span>
+
+
+<span class="comment">% % p_dynamic_final = getMooringLineShape(Y_N);</span>
+<span class="comment">% p_dynamic_final = getMooringLineShape(P_initial(:, 2),N);</span>
+<span class="comment">%</span>
+<span class="comment">% figure(2)</span>
+<span class="comment">% plot(p_dynamic_init(:, 1), p_dynamic_init(:, 3))</span>
+<span class="comment">% hold on</span>
+<span class="comment">% plot(p_dynamic_final(:, 1), p_dynamic_final(:, 3))</span>
+<span class="comment">% hold off</span>
+<span class="comment">% legend('&#21021;&#22987;&#24418;&#29366;', '&#26368;&#32456;&#24418;&#29366;'); legend boxoff;</span>
+<span class="comment">% title('&#21160;&#24577;&#35745;&#31639;&#38170;&#38142;&#24418;&#24577;');</span>
+</pre><pre class="codeinput"><span class="keyword">end</span>
+
+
+
+
+<span class="keyword">function</span> p_final = getMooringLineShape(Y_N, N)
+p_final = zeros(N+1, 3);
+<span class="keyword">for</span> i = 1:N+1
+    p_final(i, 1) = Y_N(3*i-2, 1);
+    p_final(i, 2) = Y_N(3*i-1, 1);
+    p_final(i, 3) = Y_N(3*i, 1);
+<span class="keyword">end</span>
+<span class="keyword">end</span>
+
+
+<span class="keyword">function</span> t = getTangentUnitVector(Y_N, N)
+    t = zeros(N+1, 3);
+    <span class="keyword">for</span> i = 1 : N
+        x0 = Y_N(3*i-2:3*i, 1);
+        x1 = Y_N(3*i+1:3*i+3, 1);
+        t(i, :) = (x1-x0)/norm(x1-x0);
+    <span class="keyword">end</span>
+
+<span class="keyword">end</span>
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2022a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+function [TR1, TRN] = dynamic(p0, p1, p0_next, p1_next, mooring_param)
+% 这一个是在梁博的版本上的初步修改
+
+% mooring_param = struct('length', 300, 'element_length', 10, 'element_number', 30,... 
+%                 'node_number', 31, 'E', 9.16e10, 'diameter', 0.09, 'cross_area', 6.362e-3, ...
+%                 'density', 126, 'time_step', 0.1, 'coef_drag', 1, 'coef_addmass', 1,...
+%                 'current', [0; 0; 0]);
+
+g=9.80665;
+L = mooring_param.element_length;            %分段长m
+H=1500;          %水深
+Time=1;        %时间 s
+% p0=[0;0;2];      %坐标m
+% p1=[310;0;2];
+% p0_next=[0;0;2];      %坐标m
+% p1_next=[315;0;2];
+
+
+%% 定义参数
+[dt,k0,k1,k2,k3,k4,k5,CDn,CAn,pho_water,current,nt]=constant(Time, mooring_param);
+% dt = 0.1;
+% dt反应在k0这些迭代参数上，最终体现在速度和加速度的迭代上
+% nt = 1;
+%% 分段参数
+[N,W,EA,D]=element_parameter(mooring_param);
+%% 定义质量
+[Ms]=mass_par_length(N,L,W);
+[Ms_add]=mass_add(N,L,W);
+ %% 重力
+ [G]=gravity(N,Ms,g);
+%% 质点坐标初始化
+[Y_N, p_init0]=initial_position_horizon(p0,p1,H,N);
+% [Y_N]=initial_position(p0,p1,H,N);
+%%%%%%%%%%%%%  初值结束 开始迭代  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+while 1
+ %% 单元实际长度 
+ [l]=element_length(Y_N,N);
+ %% 海底支持力
+ [Fb]=seabed(N,Ms,Y_N,H,g);
+ %% 张力
+ [T]=tension(N,EA,L,l);
+ %% 张力的雅可比矩阵
+ [KT]=tension_K(N,EA,L,l,Y_N);
+ %% 海底支持力的雅可比矩阵
+ [KB]=seabed_K(N,Ms,H,Y_N,g);
+ %% 总的雅克比矩阵
+ K=KT+KB;
+ %% 边界条件
+ BON=zeros(3*N-3,1);
+ BON(1:3,1)=-T(1:3,1:3)*Y_N(1:3,1);
+ BON(3*N-5:3*N-3,1)=-T(3*N+1:3*N+3,3*N+1:3*N+3)*Y_N(3*N+1:3*N+3,1);
+ %% 方程组合
+ FY=T(4:3*N,4:3*N)*Y_N(4:3*N,1)+G(4:3*N,1)+Fb(4:3*N,1)+BON;
+%% 求解
+R=1/2;
+Y_N1=Y_N(4:3*N,1)-K(4:3*N,4:3*N)\FY*R;
+%% 迭代终止条件
+if norm(Y_N1-Y_N(4:3*N,1))<1e-7
+    Y_N(4:3*N,1)=Y_N1;
+    break
+end
+%% 下一步迭代
+Y_N(4:3*N,1)=Y_N1;
+end
+%% 静力计算结果
+p_static_final = getMooringLineShape(Y_N,N);
+
+% figure(1)
+% plot(p_init0(:, 1), p_init0(:, 3))
+% hold on
+% plot(p_static_final(:, 1), p_static_final(:, 3))
+% hold off
+% title("static");
+% legend("init", "final") 
+% legend boxoff
+
+% TE1=EA(1,1)*(l(1,1)/L-1)*(Y_N(4:6,1)-Y_N(1:3,1))/norm(Y_N(4:6,1)-Y_N(1:3,1))+G(1:3,1);
+% T1=norm(TE1);
+%%%%%%%%%%%%%%%%%%静力计算结束%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 动力计算
+
+%% 定义运动后导缆孔的位置 和 参数初始化
+% aa=zeros(3*N,nt+1);
+% vv=zeros(3*N,nt+1);
+aa=zeros(3*N+3,nt+1);
+vv=zeros(3*N+3,nt+1);
+% [P_initial]=motion1(nt,N,Y_N,dt);
+[P_initial]=motion2(nt,N,Y_N,p0_next, p1_next);
+p_dynamic0 = getMooringLineShape(P_initial(:, 2),N);
+p_dynamic_init = getMooringLineShape(P_initial(:, 1),N);
+
+%% 时间迭代
+iter = 0;
+for t=2:2
+    
+    t;
+    P_initial(4:3*N,t)=P_initial(4:3*N,t-1);
+    Y_Nk=P_initial(:,t-1);
+    Y_N=P_initial(:,t);
+   %% 单元实际长度 上一时间点
+    [lk]=element_length(Y_Nk,N);
+   %% 张力的雅可比矩阵 上一时间点
+    [KT]=tension_K_k(N,EA,L,lk,Y_Nk);
+   %% 海底支持力的雅可比矩阵 上一时间点
+    [KB]=seabed_K_k(N,Ms,H,Y_Nk,g);
+   %% 计算雅可比矩阵使用的质量矩阵 上一时间点
+   [Msk]=mass_K(N,Y_Nk,pho_water,D,CAn,L);
+    K=KT(4:3*N,4:3*N)+KB(4:3*N,4:3*N)-k0*(Msk(4:3*N,4:3*N)+Ms_add(4:3*N,4:3*N))+10^4*eye(3*N-3);
+   %% 迭代初始化
+   delta_y=zeros(3*N-3,1);
+   %% 当前时间迭代
+while 1
+    iter = iter+1;
+   %% 单元实际长度  本时间点
+    [l]=element_length(Y_N,N);   
+   %% 附加质量    本时间点
+   [MsN]=mass_N(N,Y_N,pho_water,D,CAn,L);
+   %% 海底支持力   本时间点
+   [Fb]=seabed(N,Ms,Y_N,H,g);
+   %% 张力   本时间点
+   [T]=tension(N,EA,L,l);
+   %% 质点的数度加速度  本时间点
+   [aa,vv]=vel_acc1(delta_y,vv,aa,k0,k1,k2,k3,k4,k5,t,N,Y_N,Y_Nk);
+   %% 拖曳力  本时间点
+   [Fd]=drag_F(N,Y_N,H,current,vv,t,pho_water,D,L,CDn);
+   %% 边界条件  本时间点
+    BON=zeros(3*N-3,1);
+    BON(1:3,1)=EA(1,1)*(1/L-1/l(1,1))*eye(3)*Y_N(1:3,1);
+    BON(3*N-5:3*N-3,1)=EA(N,1)*(1/L-1/l(N,1))*eye(3)*Y_N(3*N+1:3*N+3,1);
+   %% 方程组合   本时间点
+   FY=T(4:3*N,4:3*N)*Y_N(4:3*N,1)+G(4:3*N,1)+Fb(4:3*N,1)+BON+Fd-(MsN(4:3*N,4:3*N)+Ms_add(4:3*N,4:3*N))*aa(4:3*N,t); 
+   %% 解方程    本时间点
+    y=-K\FY;
+    Y_N(4:3*N,1)=Y_N(4:3*N,1)-K\FY;
+    delta_y=delta_y-K\FY;   
+    norm(y);
+    if norm(y)<1e-5
+        
+        aa(1:3,t)=k0*(Y_N(1:3,1)-Y_Nk(1:3,1))-k1*vv(1:3,t-1)-k2*aa(1:3,t-1);
+        vv(1:3,t)=k3*(Y_N(1:3,1)-Y_Nk(1:3,1))+k4*vv(1:3,t-1)-k5*aa(1:3,t-1);
+        aa(4:3*N,t)=k0*delta_y-k1*vv(4:3*N,t-1)-k2*aa(4:3*N,t-1);                          
+        vv(4:3*N,t)=k3*delta_y+k4*vv(4:3*N,t-1)-k5*aa(4:3*N,t-1);
+        aa(3*N+1:end, t) = k0*(Y_N(3*N+1:end, 1)-Y_Nk(3*N+1:end, 1))-k1*vv(3*N+1:end,1)-k2*aa(3*N+1:end,1);
+        vv(3*N+1:end, t) = k3*(Y_N(3*N+1:end, 1)-Y_Nk(3*N+1:end, 1))+k4*vv(3*N+1:end,1)-k5*aa(3*N+1:end,1);
+%        aa(4:3*N,t)=k0*delta_y-k1*vv(4:3*N,t-1)-k2*aa(4:3*N,t-1);                          
+%        vv(4:3*N,t)=k3*delta_y+k4*vv(4:3*N,t-1)-k5*aa(4:3*N,t-1);
+       break    
+    end
+    
+end
+% sprintf("动态计算完成，迭代了%d次.", iter-1)
+P_initial(4:3*N,t)=Y_N(4:3*N,1); 
+% 计算张力
+tvec1 = (Y_N(4:6,1)-Y_N(1:3,1))/norm(Y_N(4:6,1)-Y_N(1:3,1));
+tvecN = (Y_N(3*N-2:3*N,1)-Y_N(3*N+1:3*N+3,1))/norm(Y_N(3*N-2:3*N,1)-Y_N(3*N+1:3*N+3,1));
+delta_vv1 = current-vv(1:3)';
+delta_vvN = current-vv(3*N+1:3*N+3)';
+TR1 = -(l(1)-L)/L*EA(1)*tvec1-0.25*pho_water*D(1)*CDn*(delta_vv1-(delta_vv1'*tvec1)*tvec1)...
+    *norm(delta_vv1-(delta_vv1'*tvec1)*tvec1)-G(1:3);
+TRN = -(l(end)-L)/L*EA(end)*tvecN-0.25*pho_water*D(end)*CDn*(delta_vvN-(delta_vvN'*tvecN)*tvecN)...
+    *norm(delta_vvN-(delta_vvN'*tvecN)*tvecN)-G(3*N+1:3*N+3);
+%锚链作用于船上的力
+TR1 = -TR1/1e3;
+TRN = -TRN/1e3;
+end
+% toc
+
+
+% % p_dynamic_final = getMooringLineShape(Y_N);
+% p_dynamic_final = getMooringLineShape(P_initial(:, 2),N);
+% 
+% figure(2)
+% plot(p_dynamic_init(:, 1), p_dynamic_init(:, 3))
+% hold on
+% plot(p_dynamic_final(:, 1), p_dynamic_final(:, 3))
+% hold off
+% legend('初始形状', '最终形状'); legend boxoff;
+% title('动态计算锚链形态');
+
+
+
+
+
+
+
+end
+
+
+
+
+function p_final = getMooringLineShape(Y_N, N)
+p_final = zeros(N+1, 3);
+for i = 1:N+1
+    p_final(i, 1) = Y_N(3*i-2, 1);
+    p_final(i, 2) = Y_N(3*i-1, 1);
+    p_final(i, 3) = Y_N(3*i, 1);
+end
+end
+
+
+function t = getTangentUnitVector(Y_N, N)
+    t = zeros(N+1, 3);
+    for i = 1 : N
+        x0 = Y_N(3*i-2:3*i, 1);
+        x1 = Y_N(3*i+1:3*i+3, 1);
+        t(i, :) = (x1-x0)/norm(x1-x0);
+    end
+
+end
+
+
+
+
+
+
+
+
+
+
+
+##### SOURCE END #####
+--></body></html>

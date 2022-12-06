@@ -1,0 +1,65 @@
+# CompilerName=mingw64
+# Mode=optim
+ninja_required_version = 1.3
+
+# Basic folders
+root = .
+builddir = $root/build/win64
+matlabdir = C:/Program Files/MATLAB/R2020a
+startdir = C:/Users/jiang/Desktop/towing_project_demo/MPC/local DP/localDP_4thrust
+
+# Toolchain information
+cc = C:\ProgramData\MATLAB\SupportPackages\R2020a\3P.instrset\mingw_w64.instrset\bin\gcc
+cxx = C:\ProgramData\MATLAB\SupportPackages\R2020a\3P.instrset\mingw_w64.instrset\bin\g++
+linker = C:\ProgramData\MATLAB\SupportPackages\R2020a\3P.instrset\mingw_w64.instrset\bin\gcc
+linkerxx = C:\ProgramData\MATLAB\SupportPackages\R2020a\3P.instrset\mingw_w64.instrset\bin\g++
+
+cflags =  -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I "C:\Users\jiang\Desktop\towing_project_demo\MPC\local DP\localDP_4thrust\codegen\mex\update_mv" -I "C:\Users\jiang\Desktop\towing_project_demo\MPC\local DP\localDP_4thrust" -I "C:\Users\jiang\Desktop\towing_project_demo\MPC\local DP\localDP_4thrust\codegen\mex\update_mv\interface" -I "C:\Program Files\MATLAB\R2020a\extern\include" -I "." -DMODEL=controller -D__USE_MINGW_ANSI_STDIO=1  
+
+cxxflags =  -c -fexceptions -fno-omit-frame-pointer -std=c++11 -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c++11 -I "C:\Users\jiang\Desktop\towing_project_demo\MPC\local DP\localDP_4thrust\codegen\mex\update_mv" -I "C:\Users\jiang\Desktop\towing_project_demo\MPC\local DP\localDP_4thrust" -I "C:\Users\jiang\Desktop\towing_project_demo\MPC\local DP\localDP_4thrust\codegen\mex\update_mv\interface" -I "C:\Program Files\MATLAB\R2020a\extern\include" -I "." -DMODEL=controller -D__USE_MINGW_ANSI_STDIO=1  
+
+ldflags =  -m64 -Wl,--no-undefined -shared -static -L"C:\Program Files\MATLAB\R2020a\extern\lib\win64\mingw64" -llibmx -llibmex -llibmat -lm -llibmwlapack -llibmwblas -o "controller.mexw64" -L"$matlabdir\extern\lib\win64\mingw64" -llibmwblas -llibemlrt -llibcovrt -llibut -llibmwmathutil  -Wl,--version-script,controller.map
+
+# Build Rules
+rule cc
+    command = $cc $cflags $in -o $out
+
+rule cxx
+    command = $cxx $cxxflags $in -o $out
+
+rule link
+    command = $linker @$out.rsp $ldflags
+    rspfile = $out.rsp
+    rspfile_content = $in
+
+rule linkxx
+    command = $linkerxx $in $ldflags
+
+# Build
+build $builddir/rt_nonfinite.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/rt_nonfinite.c
+build $builddir/update_mv_data.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/update_mv_data.c
+build $builddir/update_mv_initialize.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/update_mv_initialize.c
+build $builddir/update_mv_terminate.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/update_mv_terminate.c
+build $builddir/update_mv.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/update_mv.c
+build $builddir/update_sc.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/update_sc.c
+build $builddir/BBS.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/BBS.c
+build $builddir/simulate_ol.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/simulate_ol.c
+build $builddir/user_control_profile.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/user_control_profile.c
+build $builddir/eml_int_forloop_overflow_check.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/eml_int_forloop_overflow_check.c
+build $builddir/assertValidSizeArg.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/assertValidSizeArg.c
+build $builddir/user_ode.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/user_ode.c
+build $builddir/indexShapeCheck.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/indexShapeCheck.c
+build $builddir/warning.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/warning.c
+build $builddir/user_ocp.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/user_ocp.c
+build $builddir/compute_parabola.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/compute_parabola.c
+build $builddir/compute_Zg.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/compute_Zg.c
+build $builddir/qJ.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/qJ.c
+build $builddir/qg.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/qg.c
+build $builddir/_coder_update_mv_api.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/interface/_coder_update_mv_api.c
+build $builddir/_coder_update_mv_mex.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/interface/_coder_update_mv_mex.c
+build $builddir/update_mv_emxutil.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/update_mv_emxutil.c
+build $builddir/_coder_update_mv_info.o : cc C$:/Users/jiang/Desktop/towing_project_demo/MPC/local$ DP/localDP_4thrust/codegen/mex/update_mv/interface/_coder_update_mv_info.c
+build $builddir/c_mexapi_version.o : cc C$:/Program$ Files/MATLAB/R2020a/extern/version/c_mexapi_version.c
+
+# Link
+build $root\controller.mexw64 : link $builddir\rt_nonfinite.o $builddir\update_mv_data.o $builddir\update_mv_initialize.o $builddir\update_mv_terminate.o $builddir\update_mv.o $builddir\update_sc.o $builddir\BBS.o $builddir\simulate_ol.o $builddir\user_control_profile.o $builddir\eml_int_forloop_overflow_check.o $builddir\assertValidSizeArg.o $builddir\user_ode.o $builddir\indexShapeCheck.o $builddir\warning.o $builddir\user_ocp.o $builddir\compute_parabola.o $builddir\compute_Zg.o $builddir\qJ.o $builddir\qg.o $builddir\_coder_update_mv_api.o $builddir\_coder_update_mv_mex.o $builddir\update_mv_emxutil.o $builddir\_coder_update_mv_info.o $builddir\c_mexapi_version.o 

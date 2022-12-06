@@ -1,0 +1,15 @@
+MEX {
+	global:
+		mexFunction;
+		mexfilerequiredapiversion;
+		emlrtMexFcnProperties;
+		update_mv_initialize;
+		update_mv_terminate;
+		update_mv_atexit;
+		update_mv;
+		emxEnsureCapacity_real_T;
+		emxInit_real_T;
+		emxFree_real_T;
+	local:
+		*;
+};

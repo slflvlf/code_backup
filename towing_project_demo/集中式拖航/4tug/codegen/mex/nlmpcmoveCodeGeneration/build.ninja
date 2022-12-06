@@ -1,0 +1,144 @@
+# CompilerName=msvc170
+# Mode=optim
+ninja_required_version = 1.3
+
+# Basic folders
+root = .
+builddir = $root\build\win64
+matlabdir = C:\Program Files\MATLAB\R2022a
+startdir = C:\Users\jiangxvv\Desktop\集中式拖航\4tug
+
+# Toolchain information
+cc = cl
+cxx = cl
+linker = link
+linkerxx = link
+
+cflags =  /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I "$root" /I "$startdir" /I "$root\interface" /I "$matlabdir\extern\include" /I "." -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=nlmpcmoveMEX  
+
+cxxflags =   /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I "$root" /I "$startdir" /I "$root\interface" /I "$matlabdir\extern\include" /I "." -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=nlmpcmoveMEX  
+
+ldflags =  /nologo /manifest   /DLL /LIBPATH:"$matlabdir\extern\lib\win64\microsoft" libmx.lib libmex.lib libmat.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib  /out:"nlmpcmoveMEX.mexw64" /LIBPATH:"$matlabdir\extern\lib\win64\microsoft" libmwblas.lib libmwlapack.lib libemlrt.lib libcovrt.lib libut.lib libmwmathutil.lib  /export:mexFunction /export:mexfilerequiredapiversion /export:emlrtMexFcnProperties /export:nlmpcmoveCodeGeneration /export:nlmpcmoveCodeGeneration_initialize /export:nlmpcmoveCodeGeneration_terminate /export:nlmpcmoveCodeGeneration_atexit
+
+# Build Rules
+rule cc
+    command = $cc $cflags $in /Fo$out
+
+rule cxx
+    command = $cxx $cxxflags $in /Fo$out
+
+rule link
+    command = $linker @$out.rsp $ldflags
+    rspfile = $out.rsp
+    rspfile_content = $in
+
+rule linkxx
+    command = $linkerxx $in $ldflags
+
+# Build
+build $builddir\nlmpcmoveCodeGeneration_data.obj : cc $root\nlmpcmoveCodeGeneration_data.c
+build $builddir\rt_nonfinite.obj : cc $root\rt_nonfinite.c
+build $builddir\nlmpcmoveCodeGeneration_initialize.obj : cc $root\nlmpcmoveCodeGeneration_initialize.c
+build $builddir\nlmpcmoveCodeGeneration_terminate.obj : cc $root\nlmpcmoveCodeGeneration_terminate.c
+build $builddir\znlmpc_generateRuntimeData.obj : cc $root\znlmpc_generateRuntimeData.c
+build $builddir\reshapeSizeChecks.obj : cc $root\reshapeSizeChecks.c
+build $builddir\mtimes.obj : cc $root\mtimes.c
+build $builddir\fmincon.obj : cc $root\fmincon.c
+build $builddir\checkX0.obj : cc $root\checkX0.c
+build $builddir\checkLinearInputs.obj : cc $root\checkLinearInputs.c
+build $builddir\all.obj : cc $root\all.c
+build $builddir\checkNonlinearInputs.obj : cc $root\checkNonlinearInputs.c
+build $builddir\nlmpcmoveCodeGeneration.obj : cc $root\nlmpcmoveCodeGeneration.c
+build $builddir\znlmpc_getXUe.obj : cc $root\znlmpc_getXUe.c
+build $builddir\OneShipStateFcn.obj : cc $root\OneShipStateFcn.c
+build $builddir\OneShipStateJacobianFcn.obj : cc $root\OneShipStateJacobianFcn.c
+build $builddir\znlmpc_confun.obj : cc $root\znlmpc_confun.c
+build $builddir\checkVectorNonFinite.obj : cc $root\checkVectorNonFinite.c
+build $builddir\computeConstrViolationIneq_.obj : cc $root\computeConstrViolationIneq_.c
+build $builddir\ixamax.obj : cc $root\ixamax.c
+build $builddir\computeDualFeasError.obj : cc $root\computeDualFeasError.c
+build $builddir\computeComplError.obj : cc $root\computeComplError.c
+build $builddir\isDeltaXTooSmall.obj : cc $root\isDeltaXTooSmall.c
+build $builddir\xnrm2.obj : cc $root\xnrm2.c
+build $builddir\xasum.obj : cc $root\xasum.c
+build $builddir\xdot.obj : cc $root\xdot.c
+build $builddir\_coder_nlmpcmoveCodeGeneration_api.obj : cc $root\interface\_coder_nlmpcmoveCodeGeneration_api.c
+build $builddir\_coder_nlmpcmoveCodeGeneration_mex.obj : cc $root\interface\_coder_nlmpcmoveCodeGeneration_mex.c
+build $builddir\indexShapeCheck.obj : cc $root\indexShapeCheck.c
+build $builddir\eml_int_forloop_overflow_check.obj : cc $root\eml_int_forloop_overflow_check.c
+build $builddir\checkMatrixNonFinite.obj : cc $root\checkMatrixNonFinite.c
+build $builddir\computePrimalFeasError.obj : cc $root\computePrimalFeasError.c
+build $builddir\strcmp.obj : cc $root\strcmp.c
+build $builddir\xcopy.obj : cc $root\xcopy.c
+build $builddir\computeLinearResiduals.obj : cc $root\computeLinearResiduals.c
+build $builddir\setProblemType.obj : cc $root\setProblemType.c
+build $builddir\modifyOverheadPhaseOne_.obj : cc $root\modifyOverheadPhaseOne_.c
+build $builddir\modifyOverheadRegularized_.obj : cc $root\modifyOverheadRegularized_.c
+build $builddir\driver.obj : cc $root\driver.c
+build $builddir\test_exit.obj : cc $root\test_exit.c
+build $builddir\xgemv.obj : cc $root\xgemv.c
+build $builddir\factorQRE.obj : cc $root\factorQRE.c
+build $builddir\xgeqp3.obj : cc $root\xgeqp3.c
+build $builddir\computeQ_.obj : cc $root\computeQ_.c
+build $builddir\xtrsv.obj : cc $root\xtrsv.c
+build $builddir\sortLambdaQP.obj : cc $root\sortLambdaQP.c
+build $builddir\saveState.obj : cc $root\saveState.c
+build $builddir\step.obj : cc $root\step.c
+build $builddir\normal.obj : cc $root\normal.c
+build $builddir\driver1.obj : cc $root\driver1.c
+build $builddir\PresolveWorkingSet.obj : cc $root\PresolveWorkingSet.c
+build $builddir\RemoveDependentEq_.obj : cc $root\RemoveDependentEq_.c
+build $builddir\countsort.obj : cc $root\countsort.c
+build $builddir\moveConstraint_.obj : cc $root\moveConstraint_.c
+build $builddir\RemoveDependentIneq_.obj : cc $root\RemoveDependentIneq_.c
+build $builddir\feasibleX0ForWorkingSet.obj : cc $root\feasibleX0ForWorkingSet.c
+build $builddir\xgeqrf.obj : cc $root\xgeqrf.c
+build $builddir\xgemm.obj : cc $root\xgemm.c
+build $builddir\xtrsm.obj : cc $root\xtrsm.c
+build $builddir\factorQR.obj : cc $root\factorQR.c
+build $builddir\maxConstraintViolation.obj : cc $root\maxConstraintViolation.c
+build $builddir\removeAllIneqConstr.obj : cc $root\removeAllIneqConstr.c
+build $builddir\phaseone.obj : cc $root\phaseone.c
+build $builddir\computeFval.obj : cc $root\computeFval.c
+build $builddir\linearForm_.obj : cc $root\linearForm_.c
+build $builddir\iterate.obj : cc $root\iterate.c
+build $builddir\computeGrad_StoreHx.obj : cc $root\computeGrad_StoreHx.c
+build $builddir\xaxpy.obj : cc $root\xaxpy.c
+build $builddir\computeFval_ReuseHx.obj : cc $root\computeFval_ReuseHx.c
+build $builddir\squareQ_appendCol.obj : cc $root\squareQ_appendCol.c
+build $builddir\deleteColMoveEnd.obj : cc $root\deleteColMoveEnd.c
+build $builddir\compute_deltax.obj : cc $root\compute_deltax.c
+build $builddir\factor.obj : cc $root\factor.c
+build $builddir\xpotrf.obj : cc $root\xpotrf.c
+build $builddir\factor1.obj : cc $root\factor1.c
+build $builddir\solve.obj : cc $root\solve.c
+build $builddir\solve1.obj : cc $root\solve1.c
+build $builddir\addAineqConstr.obj : cc $root\addAineqConstr.c
+build $builddir\addBoundToActiveSetMatrix_.obj : cc $root\addBoundToActiveSetMatrix_.c
+build $builddir\checkUnboundedOrIllPosed.obj : cc $root\checkUnboundedOrIllPosed.c
+build $builddir\checkStoppingAndUpdateFval.obj : cc $root\checkStoppingAndUpdateFval.c
+build $builddir\addAeqConstr.obj : cc $root\addAeqConstr.c
+build $builddir\assignResidualsToXSlack.obj : cc $root\assignResidualsToXSlack.c
+build $builddir\relaxed.obj : cc $root\relaxed.c
+build $builddir\soc.obj : cc $root\soc.c
+build $builddir\updateWorkingSet.obj : cc $root\updateWorkingSet.c
+build $builddir\linesearch.obj : cc $root\linesearch.c
+build $builddir\revertSolution.obj : cc $root\revertSolution.c
+build $builddir\BFGSUpdate.obj : cc $root\BFGSUpdate.c
+build $builddir\loadProblem.obj : cc $root\loadProblem.c
+build $builddir\evalObjAndConstrAndDerivatives.obj : cc $root\evalObjAndConstrAndDerivatives.c
+build $builddir\updateWorkingSetForNewQP.obj : cc $root\updateWorkingSetForNewQP.c
+build $builddir\initActiveSet.obj : cc $root\initActiveSet.c
+build $builddir\saveJacobian.obj : cc $root\saveJacobian.c
+build $builddir\evalObjAndConstr.obj : cc $root\evalObjAndConstr.c
+build $builddir\computeDeltaLag.obj : cc $root\computeDeltaLag.c
+build $builddir\computeGradLag.obj : cc $root\computeGradLag.c
+build $builddir\feasibleratiotest.obj : cc $root\feasibleratiotest.c
+build $builddir\partialColLDL3_.obj : cc $root\partialColLDL3_.c
+build $builddir\fullColLDL2_.obj : cc $root\fullColLDL2_.c
+build $builddir\updatePenaltyParam.obj : cc $root\updatePenaltyParam.c
+build $builddir\_coder_nlmpcmoveCodeGeneration_info.obj : cc $root\interface\_coder_nlmpcmoveCodeGeneration_info.c
+build $builddir\c_mexapi_version.obj : cc $matlabdir\extern\version\c_mexapi_version.c
+
+# Link
+build $root\nlmpcmoveMEX.mexw64 : link $builddir\nlmpcmoveCodeGeneration_data.obj $builddir\rt_nonfinite.obj $builddir\nlmpcmoveCodeGeneration_initialize.obj $builddir\nlmpcmoveCodeGeneration_terminate.obj $builddir\znlmpc_generateRuntimeData.obj $builddir\reshapeSizeChecks.obj $builddir\mtimes.obj $builddir\fmincon.obj $builddir\checkX0.obj $builddir\checkLinearInputs.obj $builddir\all.obj $builddir\checkNonlinearInputs.obj $builddir\nlmpcmoveCodeGeneration.obj $builddir\znlmpc_getXUe.obj $builddir\OneShipStateFcn.obj $builddir\OneShipStateJacobianFcn.obj $builddir\znlmpc_confun.obj $builddir\checkVectorNonFinite.obj $builddir\computeConstrViolationIneq_.obj $builddir\ixamax.obj $builddir\computeDualFeasError.obj $builddir\computeComplError.obj $builddir\isDeltaXTooSmall.obj $builddir\xnrm2.obj $builddir\xasum.obj $builddir\xdot.obj $builddir\_coder_nlmpcmoveCodeGeneration_api.obj $builddir\_coder_nlmpcmoveCodeGeneration_mex.obj $builddir\indexShapeCheck.obj $builddir\eml_int_forloop_overflow_check.obj $builddir\checkMatrixNonFinite.obj $builddir\computePrimalFeasError.obj $builddir\strcmp.obj $builddir\xcopy.obj $builddir\computeLinearResiduals.obj $builddir\setProblemType.obj $builddir\modifyOverheadPhaseOne_.obj $builddir\modifyOverheadRegularized_.obj $builddir\driver.obj $builddir\test_exit.obj $builddir\xgemv.obj $builddir\factorQRE.obj $builddir\xgeqp3.obj $builddir\computeQ_.obj $builddir\xtrsv.obj $builddir\sortLambdaQP.obj $builddir\saveState.obj $builddir\step.obj $builddir\normal.obj $builddir\driver1.obj $builddir\PresolveWorkingSet.obj $builddir\RemoveDependentEq_.obj $builddir\countsort.obj $builddir\moveConstraint_.obj $builddir\RemoveDependentIneq_.obj $builddir\feasibleX0ForWorkingSet.obj $builddir\xgeqrf.obj $builddir\xgemm.obj $builddir\xtrsm.obj $builddir\factorQR.obj $builddir\maxConstraintViolation.obj $builddir\removeAllIneqConstr.obj $builddir\phaseone.obj $builddir\computeFval.obj $builddir\linearForm_.obj $builddir\iterate.obj $builddir\computeGrad_StoreHx.obj $builddir\xaxpy.obj $builddir\computeFval_ReuseHx.obj $builddir\squareQ_appendCol.obj $builddir\deleteColMoveEnd.obj $builddir\compute_deltax.obj $builddir\factor.obj $builddir\xpotrf.obj $builddir\factor1.obj $builddir\solve.obj $builddir\solve1.obj $builddir\addAineqConstr.obj $builddir\addBoundToActiveSetMatrix_.obj $builddir\checkUnboundedOrIllPosed.obj $builddir\checkStoppingAndUpdateFval.obj $builddir\addAeqConstr.obj $builddir\assignResidualsToXSlack.obj $builddir\relaxed.obj $builddir\soc.obj $builddir\updateWorkingSet.obj $builddir\linesearch.obj $builddir\revertSolution.obj $builddir\BFGSUpdate.obj $builddir\loadProblem.obj $builddir\evalObjAndConstrAndDerivatives.obj $builddir\updateWorkingSetForNewQP.obj $builddir\initActiveSet.obj $builddir\saveJacobian.obj $builddir\evalObjAndConstr.obj $builddir\computeDeltaLag.obj $builddir\computeGradLag.obj $builddir\feasibleratiotest.obj $builddir\partialColLDL3_.obj $builddir\fullColLDL2_.obj $builddir\updatePenaltyParam.obj $builddir\_coder_nlmpcmoveCodeGeneration_info.obj $builddir\c_mexapi_version.obj 

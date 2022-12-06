@@ -1,0 +1,16 @@
+MEX {
+	global:
+		mexFunction;
+		mexfilerequiredapiversion;
+		emlrtMexFcnProperties;
+		BBS_initialize;
+		BBS_terminate;
+		BBS_atexit;
+		BBS;
+		emlrt_marshallOut;
+		emxInit_real_T;
+		emxFree_real_T;
+		emxEnsureCapacity_real_T;
+	local:
+		*;
+};

@@ -1,0 +1,46 @@
+function J = costFcn()
+
+%--------------------------------------------------------------------------
+% Calculating custom cost function for Nonlinear optimization
+% Descriptions from 
+% < https://kr.mathworks.com/help/mpc/ug/specify-cost-function-for-nonlinear-mpc.html >
+%--------------------------------------------------------------------------
+% 
+% X:    State trajectory from time k to time k+p, specified as a (p+1)-by-Nx array. 
+%       The first row of X contains the current state values, which means that
+%       the solver does not use the values in X(1,:) as decision variables during optimization.
+% 
+% U:    Input trajectory from time k to time k+p, specified as a (p+1)-by-Nu array.
+%       The final row of U is always a duplicate of the preceding row; that is, U(end,:) = U(end-1,:). 
+%       Therefore, the values in the final row of U are not independent decision variables during optimization.
+% 
+% e:	Slack variable for constraint softening, specified as a nonnegative scalar. 
+%       e is zero if there are no soft constraints in your controller.
+%       If you have nonlinear soft constraints defined in your inequality constraint function (Model.CustomIneqConFcn),
+%       use a positive penalty weight on e and make them part of the cost function.
+% 
+% data: Additional signals, specified as a structure with the following fields:
+% 
+%          --------------------------------------------------------------------------------------------------------------
+%          Field               Description
+%          --------------------------------------------------------------------------------------------------------------
+%          Ts                  Prediction model sample time, as defined in the Ts property of the controller
+%          CurrentStates       Current prediction model states, as specified in the x input argument of nlmpcmove
+%          LastMV              MV moves used in previous control interval, as specified in the lastmv input argument of nlmpcmove
+%          References          Reference values for plant outputs, as specified in the ref input argument of nlmpcmove
+%          MVTarget            Manipulated variable targets, as specified in the MVTarget property of an nlmpcmoveopt object
+%          PredictionHorizon	Prediction horizon, as defined in the PredictionHorizon property of the controller
+%          NumOfStates         Number of states, as defined in the Dimensions.NumberOfStates property of the controller
+%          NumOfOutputs        Number of outputs, as defined in the Dimensions.NumberOfOutputs property of the controller
+%          NumOfInputs         Number of inputs, as defined in the Dimensions.NumberOfInputs property of the controller
+%          MVIndex             Manipulated variables indices, as defined in the Dimensions.MVIndex property of the controller
+%          MDIndex             Measured disturbance indices, as defined in the Dimensions.MDIndex property of the controller
+%          UDIndex             Unmeasured disturbance indices, as defined in the Dimensions.UDIndex property of the controller
+%          --------------------------------------------------------------------------------------------------------------
+%       
+% J:    Computed cost, returned as a scalar
+
+
+
+end
+
