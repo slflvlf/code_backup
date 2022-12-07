@@ -1,0 +1,12 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: template.aux
+The style file: spbasic-unsort.bst
+Database file #1: refs.bib
+Repeated entry---line 344 of file refs.bib
+ : @article{fossen1999passive
+ :                           ,
+I'm skipping whatever remains of this entry
+Warning--can't use both volume and number fields in magalhaes2018reinforcement
+`journal' is a missing field, not a string, for entry pinkster1980low
+while executing---line 1650 of file spbasic-unsort.bst
+Warning--empty journal in pinkster1980low
+(There were 2 error messages)

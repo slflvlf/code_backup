@@ -1,0 +1,84 @@
+function [U, angle_course U_barycenter, U_formation, U_obstacle] = nsb_controller(p1, p2, p3, p4, pd0, dot_pd0)
+    %% 来自论文《formation control of marine surface vessels using the NSB》
+    n_ship = 4; %编队船舶的数量
+
+    global delta10 delta20 delta30 delta40; %2*1数组
+
+    %% barycenter 编队中心，驱使leader追踪一个轨迹
+    pose = [p1(1:2); p2(1:2); p3(1:2); p4(1:2)];
+    sigma_barycenter = 1/n_ship * (p1(1:2) + p2(1:2) + p3(1:2) + p4(1:2));%任务函数
+
+    J_barycenter = 1/n_ship * [1, 0, 1, 0, 1, 0, 1, 0;...
+                                0, 1, 0, 1, 0, 1, 0, 1];%任务函数的雅可比矩阵(2*8)
+
+    J_barycenter_inverse = J_barycenter' * inv(J_barycenter * J_barycenter');%雅可比矩阵的伪逆
+
+    gama_barycenter = diag([1, 1]); %增益矩阵
+    
+    %编队运动的输出，采用了closed loop inverse
+    %kinematics(CLIK)，闭环逆运动学来补偿积分过程中的误差（numerical drift), 即vd->pd的积分过程
+    U_barycenter = J_barycenter_inverse * (dot_pd0(1:2) + gama_barycenter * (pd0(1:2) - sigma_barycenter));
+
+
+
+
+    %% rigid formation  编队形式
+    pose_barycenter = sigma_barycenter; %编队中心
+
+    %任务函数
+    sigma_formation = [p1(1:2) - pose_barycenter;
+                        p2(1:2) - pose_barycenter;
+                        p3(1:2) - pose_barycenter;
+                        p4(1:2) - pose_barycenter];
+
+    
+    %中间矩阵
+    A = zeros(n_ship, n_ship);
+    for i = 1 : n_ship
+        for j = 1 : n_ship
+            if(i==j)
+                A(i, j) = 1-1/n_ship;
+            else
+                A(i, j) = -1/n_ship;
+            end
+        end
+    end
+    
+    %任务函数的雅可比矩阵
+    J_formation = [A, zeros(n_ship, n_ship);
+                    zeros(n_ship, n_ship), A];
+
+    % 雅可比矩阵的逆，这个逆等于本身
+    J_formation_inverse = J_formation;
+    
+    % 编队的增益矩阵
+    gama_formation = diag(ones(2*n_ship, 1));
+
+    sigma_formation_desired = [delta10; delta20; delta30; delta40];
+    
+    % 编队速度输出
+    U_formation = J_formation_inverse * gama_formation * (sigma_formation_desired - sigma_formation);
+
+    %% 避障，对于多船编队来说，每个船的都需要编队
+    U_obstacle = zeros(n_ship*2, 1);
+
+
+    %% 零空间加和
+    %这里把编队中心移动作为首要任务，编队形式作为次要任务
+    nsb12 = (eye(n_ship*2) - J_barycenter_inverse * J_barycenter);
+    U = U_barycenter + (eye(n_ship*2) - J_barycenter_inverse * J_barycenter) * U_formation;
+
+    angle_course = zeros(n_ship, 1);
+    for i = 1 : n_ship
+        angle_course(i, 1) = atan2(U(2*i), U(2*i-1));
+    end
+
+
+
+end
+
+
+
+
+%% 辅助函数
+

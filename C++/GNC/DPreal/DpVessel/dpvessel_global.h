@@ -1,0 +1,12 @@
+#ifndef DPVESSEL_GLOBAL_H
+#define DPVESSEL_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(DPVESSEL_LIBRARY)
+#  define DPVESSELSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define DPVESSELSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // DPVESSEL_GLOBAL_H
