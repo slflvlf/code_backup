@@ -1,0 +1,80 @@
+[
+  {
+    "directory": "C:\\Download\\pdfmpc-main\\pdfmpc-main\\codegen\\mex\\BBS",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Download\\pdfmpc-main\\pdfmpc-main\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2022a\\extern\\include\" /I \".\" -DMODEL=BBS_check   BBS_data.c /Fobuild\\win64\\BBS_data.obj",
+    "file": "BBS_data.c",
+    "output": "build/win64/BBS_data.obj"
+  },
+  {
+    "directory": "C:\\Download\\pdfmpc-main\\pdfmpc-main\\codegen\\mex\\BBS",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Download\\pdfmpc-main\\pdfmpc-main\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2022a\\extern\\include\" /I \".\" -DMODEL=BBS_check   rt_nonfinite.c /Fobuild\\win64\\rt_nonfinite.obj",
+    "file": "rt_nonfinite.c",
+    "output": "build/win64/rt_nonfinite.obj"
+  },
+  {
+    "directory": "C:\\Download\\pdfmpc-main\\pdfmpc-main\\codegen\\mex\\BBS",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Download\\pdfmpc-main\\pdfmpc-main\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2022a\\extern\\include\" /I \".\" -DMODEL=BBS_check   BBS_initialize.c /Fobuild\\win64\\BBS_initialize.obj",
+    "file": "BBS_initialize.c",
+    "output": "build/win64/BBS_initialize.obj"
+  },
+  {
+    "directory": "C:\\Download\\pdfmpc-main\\pdfmpc-main\\codegen\\mex\\BBS",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Download\\pdfmpc-main\\pdfmpc-main\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2022a\\extern\\include\" /I \".\" -DMODEL=BBS_check   BBS_terminate.c /Fobuild\\win64\\BBS_terminate.obj",
+    "file": "BBS_terminate.c",
+    "output": "build/win64/BBS_terminate.obj"
+  },
+  {
+    "directory": "C:\\Download\\pdfmpc-main\\pdfmpc-main\\codegen\\mex\\BBS",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Download\\pdfmpc-main\\pdfmpc-main\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2022a\\extern\\include\" /I \".\" -DMODEL=BBS_check   BBS.c /Fobuild\\win64\\BBS.obj",
+    "file": "BBS.c",
+    "output": "build/win64/BBS.obj"
+  },
+  {
+    "directory": "C:\\Download\\pdfmpc-main\\pdfmpc-main\\codegen\\mex\\BBS",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Download\\pdfmpc-main\\pdfmpc-main\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2022a\\extern\\include\" /I \".\" -DMODEL=BBS_check   user_ode.c /Fobuild\\win64\\user_ode.obj",
+    "file": "user_ode.c",
+    "output": "build/win64/user_ode.obj"
+  },
+  {
+    "directory": "C:\\Download\\pdfmpc-main\\pdfmpc-main\\codegen\\mex\\BBS",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Download\\pdfmpc-main\\pdfmpc-main\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2022a\\extern\\include\" /I \".\" -DMODEL=BBS_check   user_ocp.c /Fobuild\\win64\\user_ocp.obj",
+    "file": "user_ocp.c",
+    "output": "build/win64/user_ocp.obj"
+  },
+  {
+    "directory": "C:\\Download\\pdfmpc-main\\pdfmpc-main\\codegen\\mex\\BBS",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Download\\pdfmpc-main\\pdfmpc-main\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2022a\\extern\\include\" /I \".\" -DMODEL=BBS_check   interface\\_coder_BBS_api.c /Fobuild\\win64\\_coder_BBS_api.obj",
+    "file": "interface/_coder_BBS_api.c",
+    "output": "build/win64/_coder_BBS_api.obj"
+  },
+  {
+    "directory": "C:\\Download\\pdfmpc-main\\pdfmpc-main\\codegen\\mex\\BBS",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Download\\pdfmpc-main\\pdfmpc-main\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2022a\\extern\\include\" /I \".\" -DMODEL=BBS_check   interface\\_coder_BBS_mex.c /Fobuild\\win64\\_coder_BBS_mex.obj",
+    "file": "interface/_coder_BBS_mex.c",
+    "output": "build/win64/_coder_BBS_mex.obj"
+  },
+  {
+    "directory": "C:\\Download\\pdfmpc-main\\pdfmpc-main\\codegen\\mex\\BBS",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Download\\pdfmpc-main\\pdfmpc-main\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2022a\\extern\\include\" /I \".\" -DMODEL=BBS_check   eml_int_forloop_overflow_check.c /Fobuild\\win64\\eml_int_forloop_overflow_check.obj",
+    "file": "eml_int_forloop_overflow_check.c",
+    "output": "build/win64/eml_int_forloop_overflow_check.obj"
+  },
+  {
+    "directory": "C:\\Download\\pdfmpc-main\\pdfmpc-main\\codegen\\mex\\BBS",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Download\\pdfmpc-main\\pdfmpc-main\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2022a\\extern\\include\" /I \".\" -DMODEL=BBS_check   BBS_emxutil.c /Fobuild\\win64\\BBS_emxutil.obj",
+    "file": "BBS_emxutil.c",
+    "output": "build/win64/BBS_emxutil.obj"
+  },
+  {
+    "directory": "C:\\Download\\pdfmpc-main\\pdfmpc-main\\codegen\\mex\\BBS",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Download\\pdfmpc-main\\pdfmpc-main\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2022a\\extern\\include\" /I \".\" -DMODEL=BBS_check   interface\\_coder_BBS_info.c /Fobuild\\win64\\_coder_BBS_info.obj",
+    "file": "interface/_coder_BBS_info.c",
+    "output": "build/win64/_coder_BBS_info.obj"
+  },
+  {
+    "directory": "C:\\Download\\pdfmpc-main\\pdfmpc-main\\codegen\\mex\\BBS",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Download\\pdfmpc-main\\pdfmpc-main\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2022a\\extern\\include\" /I \".\" -DMODEL=BBS_check   \"C:\\Program Files\\MATLAB\\R2022a\\extern\\version\\c_mexapi_version.c\" /Fobuild\\win64\\c_mexapi_version.obj",
+    "file": "C:/Program Files/MATLAB/R2022a/extern/version/c_mexapi_version.c",
+    "output": "build/win64/c_mexapi_version.obj"
+  }
+]

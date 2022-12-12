@@ -1,0 +1,61 @@
+# CompilerName=msvc170
+# Mode=optim
+ninja_required_version = 1.3
+
+# Basic folders
+root = .
+builddir = $root\build\win64
+matlabdir = C:\Program Files\MATLAB\R2022a
+startdir = C:\Download\pdfmpc-main\pdfmpc-main
+
+# Toolchain information
+cc = cl
+cxx = cl
+linker = link
+linkerxx = link
+
+cflags =  /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I "$root" /I "$startdir" /I "$root\interface" /I "$matlabdir\extern\include" /I "." -DMODEL=controller  
+
+cxxflags =   /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I "$root" /I "$startdir" /I "$root\interface" /I "$matlabdir\extern\include" /I "." -DMODEL=controller  
+
+ldflags =  /nologo /manifest   /DLL /LIBPATH:"$matlabdir\extern\lib\win64\microsoft" libmx.lib libmex.lib libmat.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib  /out:"controller.mexw64" libemlrt.lib libcovrt.lib libut.lib libmwmathutil.lib  /export:mexFunction /export:mexfilerequiredapiversion /export:emlrtMexFcnProperties /export:update_mv /export:update_mv_initialize /export:update_mv_terminate /export:update_mv_atexit /export:emxEnsureCapacity_real_T /export:emxFree_real_T /export:emxInit_real_T
+
+# Build Rules
+rule cc
+    command = $cc $cflags $in /Fo$out
+
+rule cxx
+    command = $cxx $cxxflags $in /Fo$out
+
+rule link
+    command = $linker @$out.rsp $ldflags
+    rspfile = $out.rsp
+    rspfile_content = $in
+
+rule linkxx
+    command = $linkerxx $in $ldflags
+
+# Build
+build $builddir\update_mv_data.obj : cc $root\update_mv_data.c
+build $builddir\rt_nonfinite.obj : cc $root\rt_nonfinite.c
+build $builddir\update_mv_initialize.obj : cc $root\update_mv_initialize.c
+build $builddir\update_mv_terminate.obj : cc $root\update_mv_terminate.c
+build $builddir\update_mv.obj : cc $root\update_mv.c
+build $builddir\BBS.obj : cc $root\BBS.c
+build $builddir\user_control_profile.obj : cc $root\user_control_profile.c
+build $builddir\user_ode.obj : cc $root\user_ode.c
+build $builddir\user_ocp.obj : cc $root\user_ocp.c
+build $builddir\compute_parabola.obj : cc $root\compute_parabola.c
+build $builddir\compute_Zg.obj : cc $root\compute_Zg.c
+build $builddir\qJ.obj : cc $root\qJ.c
+build $builddir\qg.obj : cc $root\qg.c
+build $builddir\_coder_update_mv_api.obj : cc $root\interface\_coder_update_mv_api.c
+build $builddir\_coder_update_mv_mex.obj : cc $root\interface\_coder_update_mv_mex.c
+build $builddir\eml_int_forloop_overflow_check.obj : cc $root\eml_int_forloop_overflow_check.c
+build $builddir\update_sc.obj : cc $root\update_sc.c
+build $builddir\update_mv_emxutil.obj : cc $root\update_mv_emxutil.c
+build $builddir\_coder_update_mv_info.obj : cc $root\interface\_coder_update_mv_info.c
+build $builddir\c_mexapi_version.obj : cc $matlabdir\extern\version\c_mexapi_version.c
+
+# Link
+build $root\controller.mexw64 : link $builddir\update_mv_data.obj $builddir\rt_nonfinite.obj $builddir\update_mv_initialize.obj $builddir\update_mv_terminate.obj $builddir\update_mv.obj $builddir\BBS.obj $builddir\user_control_profile.obj $builddir\user_ode.obj $builddir\user_ocp.obj $builddir\compute_parabola.obj $builddir\compute_Zg.obj $builddir\qJ.obj $builddir\qg.obj $builddir\_coder_update_mv_api.obj $builddir\_coder_update_mv_mex.obj $builddir\eml_int_forloop_overflow_check.obj $builddir\update_sc.obj $builddir\update_mv_emxutil.obj $builddir\_coder_update_mv_info.obj $builddir\c_mexapi_version.obj 
